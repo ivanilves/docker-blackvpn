@@ -13,7 +13,8 @@ RUN echo http://nl.alpinelinux.org/alpine/edge/testing >>/etc/apk/repositories \
   && wget -O /tmp/blackvpn_linux.zip 'https://www.blackvpn.com/?wpdmact=process&did=NTUuaG90bGluaw==' \
   && unzip /tmp/blackvpn_linux.zip -d /tmp/ && mv /tmp/blackvpn_linux/* /etc/openvpn/ \
   && chmod 0644 /etc/openvpn/*.conf && chmod 0600 /etc/openvpn/ssl/*.key \
-  && sed -i '/^up .*/d;/^down .*/d' /etc/openvpn/*.conf
+  && sed -i '/^up .*/d;/^down .*/d' /etc/openvpn/*.conf \
+  && rm -f /var/cache/apk/*.tar.gz
 
 ADD ./start-blackvpn.sh /start-blackvpn.sh
 ADD ./start-sockd.sh /start-sockd.sh
