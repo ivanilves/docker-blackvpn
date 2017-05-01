@@ -2,9 +2,9 @@ FROM alpine:3.5
 
 LABEL maintainer "ivan.ilves@gmail.com"
 
-ENV BLACKVPN_USER set.me.please
-ENV BLACKVPN_PASS set.me.please
-ENV BLACKVPN_CONF set.me.please
+ENV BLACKVPN_USER my.blackvpn.username
+ENV BLACKVPN_PASS my.blackvpn.password
+ENV BLACKVPN_CONF random
 
 EXPOSE 1080
 
