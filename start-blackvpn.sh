@@ -24,4 +24,9 @@ if [[ $(echo "${BLACKVPN_CONFS}" | grep "^${BLACKVPN_CONF}$" | wc -l) -ne 1 ]]; 
   exit 3
 fi
 
-openvpn --cd /etc/openvpn --config ${BLACKVPN_CONF}.conf --cipher AES-256-CBC --auth-user-pass /tmp/blackvpn.up
+openvpn \
+  --cd /etc/openvpn \
+  --config ${BLACKVPN_CONF}.conf \
+  --cipher AES-256-CBC \
+  --auth-user-pass /tmp/blackvpn.up \
+  --up "/start-sockd.sh"
